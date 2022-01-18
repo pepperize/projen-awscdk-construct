@@ -19,6 +19,7 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
       autoApproveOptions: {
         ...options.autoApproveOptions,
         allowedUsernames: ["unerty", "pflorek", "acfo", "dependabot[bot]"],
+        label: DependabotLabel.AUTO_APPROVE,
         secret: "GITHUB_TOKEN",
       },
       depsUpgradeOptions: {
@@ -29,6 +30,9 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
         },
       },
       dependabot: true,
+      dependabotOptions: {
+        labels: [DependabotLabel.AUTO_APPROVE],
+      },
       eslint: true,
       prettier: true,
       prettierOptions: {
@@ -54,4 +58,8 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
 
     this.jest?.addTestMatch("**/?(*.)@(spec|test).[tj]s?(x)");
   }
+}
+
+export enum DependabotLabel {
+  AUTO_APPROVE = "auto-approve",
 }
