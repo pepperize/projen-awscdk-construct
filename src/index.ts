@@ -19,6 +19,7 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
       autoApproveOptions: {
         ...options.autoApproveOptions,
         allowedUsernames: ["unerty", "pflorek", "acfo", "dependabot[bot]"],
+        label: "auto-approve",
         secret: "GITHUB_TOKEN",
       },
       depsUpgradeOptions: {
