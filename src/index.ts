@@ -56,6 +56,6 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
       exec: "prettier --write src/**/*.ts test/**/*.ts .projenrc.js README.md",
     });
 
-    this.jest?.addTestMatch("**/?(*.)@(spec|test).[tj]s?(x)");
+    this.jest?.addTestMatch("<rootDir>/**/?(*.)@(spec|test).[tj]s?(x)");
   }
 }
