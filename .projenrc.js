@@ -56,7 +56,7 @@ const project = new cdk.JsiiProject({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 
-project.setScript("format", "prettier --write src/**/*.ts test/**/*.ts .projenrc.js README.md");
+project.setScript("format", "prettier --write src/{**/,}*.ts test/{**/,}*.ts .projenrc.js README.md");
 
 project.jest.addTestMatch("<rootDir>/**/?(*.)@(spec|test).[tj]s?(x)");
 

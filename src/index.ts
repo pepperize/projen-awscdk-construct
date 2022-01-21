@@ -53,7 +53,7 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
     this.prettier?.addIgnorePattern("API.md");
     this.formatTask = this.addTask("format", {
       description: "Format with prettier",
-      exec: "prettier --write src/**/*.ts test/**/*.ts .projenrc.js README.md",
+      exec: "prettier --write src/{**/,}*.ts test/{**/,}*.ts .projenrc.js README.md",
     });
 
     this.jest?.addTestMatch("<rootDir>/**/?(*.)@(spec|test).[tj]s?(x)");
