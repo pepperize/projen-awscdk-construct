@@ -534,14 +534,6 @@
     chalk "^4.1.2"
     semver "^7.3.5"
 
-"@jsii/check-node@1.53.0":
-  version "1.53.0"
-  resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.53.0.tgz#9c54cef4bf1fca61dd24e536c4dac89e29abe599"
-  integrity sha512-38KA8qNxawWDCj9qVzc4Y6oAdkAmoLSDENzlG24SD309/TnSgMcnCCqtdOVRuJWo66aQgyEUrSqaGWw/YUCVyA==
-  dependencies:
-    chalk "^4.1.2"
-    semver "^7.3.5"
-
 "@jsii/check-node@1.54.0":
   version "1.54.0"
   resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.54.0.tgz#6cee236d2267c1d4df4cd58aacffdf7fbf87ebe7"
@@ -557,7 +549,7 @@
   dependencies:
     jsonschema "^1.4.0"
 
-"@jsii/spec@^1.52.1", "@jsii/spec@^1.53.0", "@jsii/spec@^1.54.0":
+"@jsii/spec@^1.52.1", "@jsii/spec@^1.54.0":
   version "1.54.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.54.0.tgz#4d03e8386a81b5db0e292a5ff3df6b265ba5ad07"
   integrity sha512-IOspxWPC26+Re6DNJvaxCEkG1BYByiGSPlRxQpIpts+Hx2EZgAvuG+8rQoryNt7JqaAKpcJ6W3OdRmSw3x5Yrg==
@@ -3798,12 +3790,12 @@ jsii@1.52.1:
     yargs "^16.2.0"
 
 jsii@^1.52.1:
-  version "1.53.0"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.53.0.tgz#946b557ef50523a57e9b5a570293b951186c83d2"
-  integrity sha512-hPwapfZD3zIzHD49gewtM/w/iSi6QMPKf+HjovFA4u4j/cwUJBpb5DqG55m3LtUKHLj23Ll6KDuh7xr+H5PiDA==
+  version "1.54.0"
+  resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.54.0.tgz#300fabed7204ec7afab2f3cf6e45faffc00067a7"
+  integrity sha512-XuqGpmGIxFcX2GvX3zjcHBzBeZ7+tJ7hr5tu/7qV6wQ/thXuZFdAoj2znSgBkpGOt6mjtRuqv01HIRl25Nys5g==
   dependencies:
-    "@jsii/check-node" "1.53.0"
-    "@jsii/spec" "^1.53.0"
+    "@jsii/check-node" "1.54.0"
+    "@jsii/spec" "^1.54.0"
     case "^1.6.3"
     chalk "^4"
     deep-equal "^2.0.5"
