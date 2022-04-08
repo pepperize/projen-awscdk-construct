@@ -26,19 +26,6 @@ new AwsCdkConstructLibrary(options: AwsCdkConstructLibraryOptions)
 
 ---
 
-#### Methods <a name="Methods" id="methods"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| [`postSynthesize`](#pepperizeprojenawscdkconstructawscdkconstructlibrarypostsynthesize) | (experimental) Called after all components are synthesized. |
-
----
-
-##### `postSynthesize` <a name="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.postSynthesize" id="pepperizeprojenawscdkconstructawscdkconstructlibrarypostsynthesize"></a>
-
-```typescript
-public postSynthesize()
-```
 
 
 #### Properties <a name="Properties" id="properties"></a>
