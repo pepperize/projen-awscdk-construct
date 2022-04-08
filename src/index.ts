@@ -58,4 +58,10 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
 
     this.jest?.addTestMatch("<rootDir>/**/?(*.)@(spec|test).[tj]s?(x)");
   }
+
+  postSynthesize() {
+    super.postSynthesize();
+
+    this.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
+  }
 }
