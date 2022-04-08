@@ -60,4 +60,6 @@ project.setScript("format", "prettier --write src/{**/,}*.ts test/{**/,}*.ts .pr
 
 project.jest.addTestMatch("<rootDir>/**/?(*.)@(spec|test).[tj]s?(x)");
 
+project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
+
 project.synth();
