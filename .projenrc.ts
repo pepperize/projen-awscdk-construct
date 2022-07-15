@@ -58,8 +58,6 @@ const project = new cdk.JsiiProject({
 
 project.setScript("format", "prettier --write src/{**/,}*.ts test/{**/,}*.ts .projenrc.js README.md");
 
-project.jest?.addTestMatch("<rootDir>/**/?(*.)@(spec|test).[tj]s?(x)");
-
 project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
 
 project.synth();
