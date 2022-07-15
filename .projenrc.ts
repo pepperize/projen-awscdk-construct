@@ -14,7 +14,7 @@ const project = new cdk.JsiiProject({
 
   autoApproveUpgrades: true,
   autoApproveOptions: {
-    allowedUsernames: ["unerty", "pflorek", "acfo", "dependabot[bot]"],
+    allowedUsernames: ["pflorek", "acfo", "dependabot[bot]"],
     secret: "GITHUB_TOKEN",
   },
   depsUpgradeOptions: {
