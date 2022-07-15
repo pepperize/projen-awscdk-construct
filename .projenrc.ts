@@ -62,7 +62,7 @@ const project = new cdk.JsiiProject({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 
-project.setScript("format", "prettier --write src/**/*.ts test/**/*.ts .projenrc.js README.md");
+project.setScript("format", "prettier --write src/**/*.ts test/**/*.ts .projenrc.[jt]s README.md");
 
 project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
 
