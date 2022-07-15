@@ -1,4 +1,4 @@
-const { javascript, cdk } = require("projen");
+import { javascript, cdk } from "projen";
 const project = new cdk.JsiiProject({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
@@ -9,6 +9,8 @@ const project = new cdk.JsiiProject({
   description: "This project provides a projen project type providing presets for an AWS CDK construct library project",
   keywords: ["aws", "cdk", "projen"],
   repositoryUrl: "https://github.com/pepperize/projen-awscdk-construct.git",
+
+  projenrcTs: true,
 
   autoApproveUpgrades: true,
   autoApproveOptions: {
@@ -34,9 +36,7 @@ const project = new cdk.JsiiProject({
 
   defaultReleaseBranch: "main",
   npmAccess: javascript.NpmAccess.PUBLIC,
-  release: {
-    releaseEveryCommit: true,
-  },
+  release: true,
   releaseToNpm: true,
   // publishToNuget: {
   //   dotNetNamespace: "Pepperize.Projen",
@@ -58,7 +58,7 @@ const project = new cdk.JsiiProject({
 
 project.setScript("format", "prettier --write src/{**/,}*.ts test/{**/,}*.ts .projenrc.js README.md");
 
-project.jest.addTestMatch("<rootDir>/**/?(*.)@(spec|test).[tj]s?(x)");
+project.jest?.addTestMatch("<rootDir>/**/?(*.)@(spec|test).[tj]s?(x)");
 
 project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
 

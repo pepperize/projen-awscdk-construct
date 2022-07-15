@@ -45,6 +45,7 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
       defaultReleaseBranch: "main",
       npmAccess: javascript.NpmAccess.PUBLIC,
       release: true,
+      staleOptions: {},
       gitignore: [...(options.gitignore || [])],
     });
 
