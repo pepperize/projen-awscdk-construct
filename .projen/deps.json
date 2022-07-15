@@ -93,7 +93,7 @@
     },
     {
       "name": "ts-node",
-      "version": "^9",
+      "version": "^10",
       "type": "build"
     },
     {

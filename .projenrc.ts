@@ -66,4 +66,6 @@ project.setScript("format", "prettier --write src/**/*.ts test/**/*.ts .projenrc
 
 project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
 
+project.addDevDeps("ts-node@^10");
+
 project.synth();
