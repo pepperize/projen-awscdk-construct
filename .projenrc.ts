@@ -47,7 +47,7 @@ const project = new cdk.JsiiProject({
     module: "pepperize_projen_awscdk_construct",
   },
 
-  gitignore: [".idea/", "*.iml"],
+  gitignore: [".idea/", "*.iml", ".vscode"],
 
   deps: ["projen"] /* Runtime dependencies of this module. */,
   peerDeps: ["projen"],
@@ -56,7 +56,7 @@ const project = new cdk.JsiiProject({
   // packageName: undefined,  /* The "name" in package.json. */
 });
 
-project.setScript("format", "prettier --write src/{**/,}*.ts test/{**/,}*.ts .projenrc.js README.md");
+project.setScript("format", "prettier --write src/**/*.ts test/**/*.ts .projenrc.js README.md");
 
 project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
 

@@ -67,7 +67,7 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
 
     this.formatTask = this.addTask("format", {
       description: "Format with prettier",
-      exec: "prettier --write src/{**/,}*.ts test/{**/,}*.ts .projenrc.js README.md",
+      exec: "prettier --write src/**/*.ts test/**/*.ts .projenrc.js README.md",
     });
 
     // https://editorconfig.org/#file-format-details
