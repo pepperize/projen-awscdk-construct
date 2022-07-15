@@ -61,6 +61,8 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
       gitignore: [...(options.gitignore || [])],
     });
 
+    this.addDevDeps("ts-node@^10");
+
     this.gitignore.exclude(".idea/", "*.iml", ".vscode/");
 
     this.prettier?.addIgnorePattern("API.md");
