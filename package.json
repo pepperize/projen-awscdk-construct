@@ -16,6 +16,7 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
+    "package:java": "npx projen package:java",
     "package:js": "npx projen package:js",
     "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
@@ -123,6 +124,13 @@
   "jsii": {
     "outdir": "dist",
     "targets": {
+      "java": {
+        "package": "com.pepperize.projen.awscdk_construct",
+        "maven": {
+          "groupId": "com.pepperize",
+          "artifactId": "projen-awscdk-construct"
+        }
+      },
       "python": {
         "distName": "pepperize.projen-awscdk-construct",
         "module": "pepperize_projen_awscdk_construct"

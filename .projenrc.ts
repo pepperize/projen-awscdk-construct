@@ -46,6 +46,12 @@ const project = new cdk.JsiiProject({
     distName: "pepperize.projen-awscdk-construct",
     module: "pepperize_projen_awscdk_construct",
   },
+  publishToMaven: {
+    mavenEndpoint: "https://s01.oss.sonatype.org",
+    mavenGroupId: "com.pepperize",
+    mavenArtifactId: "projen-awscdk-construct",
+    javaPackage: "com.pepperize.projen.awscdk_construct",
+  },
 
   gitignore: [".idea/", "*.iml", ".vscode"],
 
