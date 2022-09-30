@@ -26,7 +26,6 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
         ...options.depsUpgradeOptions,
         workflowOptions: {
           ...options.depsUpgradeOptions?.workflowOptions,
-          secret: "PROJEN_GITHUB_TOKEN",
         },
       },
       dependabot: true,
