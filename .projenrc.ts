@@ -17,11 +17,6 @@ const project = new cdk.JsiiProject({
     allowedUsernames: ["pflorek", "acfo", "dependabot[bot]"],
     secret: "GITHUB_TOKEN",
   },
-  depsUpgradeOptions: {
-    workflowOptions: {
-      secret: "PROJEN_GITHUB_TOKEN",
-    },
-  },
   dependabot: true,
   dependabotOptions: {
     labels: ["auto-approve"],

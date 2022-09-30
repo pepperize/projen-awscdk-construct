@@ -44,6 +44,7 @@ new AwsCdkConstructLibrary(options: AwsCdkConstructLibraryOptions)
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addBins">addBins</a></code> | *No description.* |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
@@ -295,6 +296,25 @@ Finds an object file (like JsonFile, YamlFile, etc.) by name.
 - *Type:* string
 
 The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
 
 ---
 
@@ -577,10 +597,11 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
-| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
@@ -595,6 +616,7 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
@@ -612,7 +634,7 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
-| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Automatic PR merges. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
@@ -650,6 +672,18 @@ public readonly buildTask: Task;
 
 ---
 
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
 ##### `compileTask`<sup>Required</sup> <a name="compileTask" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.compileTask"></a>
 
 ```typescript
@@ -672,18 +706,6 @@ Returns all the components within this project.
 
 ---
 
-##### `defaultTask`<sup>Required</sup> <a name="defaultTask" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.defaultTask"></a>
-
-```typescript
-public readonly defaultTask: Task;
-```
-
-- *Type:* projen.Task
-
-This is the "default" task, the one that executes "projen".
-
----
-
 ##### `deps`<sup>Required</sup> <a name="deps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.deps"></a>
 
 ```typescript
@@ -693,6 +715,18 @@ public readonly deps: Dependencies;
 - *Type:* projen.Dependencies
 
 Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
 
 ---
 
@@ -853,6 +887,21 @@ public readonly testTask: Task;
 ```
 
 - *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
 
 ---
 
@@ -1084,7 +1133,7 @@ public readonly autoMerge: AutoMerge;
 
 - *Type:* projen.github.AutoMerge
 
-Automatic PR merges.
+Component that sets up mergify for merging approved pull requests.
 
 ---
 
