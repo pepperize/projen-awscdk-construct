@@ -779,9 +779,9 @@
   integrity sha512-5dNBXu/FOER+EXnyah7rn8xlNrfMOQb/qXnw4NQgLkCygKBKhdmF/CA5oXVOKZLBEahw8s2WP9LxIcN/oDDRgQ==
 
 "@types/node@^14":
-  version "14.18.31"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.31.tgz#4b873dea3122e71af4f77e65ec5841397ff254d3"
-  integrity sha512-vQAnaReSQkEDa8uwAyQby8bYGKu84R/deEc6mg5T8fX6gzCn8QW6rziSgsti1fNvsrswKUKPnVTi7uoB+u62Mw==
+  version "14.18.32"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.32.tgz#8074f7106731f1a12ba993fe8bad86ee73905014"
+  integrity sha512-Y6S38pFr04yb13qqHf8uk1nHE3lXgQ30WZbv1mLliV9pt0NjvqdWttLcrOYLnXbOafknVYRHZGoMSpR9UwfYow==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -3340,9 +3340,9 @@ jsii-diff@^1.52.1:
     yargs "^16.2.0"
 
 jsii-docgen@^7.0.51:
-  version "7.0.110"
-  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-7.0.110.tgz#905818189b99d571f5fdf90266d9c18f4cc1b38d"
-  integrity sha512-H5u99x2Aavi5hazV7YHmJGD9SQu5aEv2N1IoTRf4MGc9NNWgPjHT3mivXnEyCPaJTBzvrcsAs+D8fFByNimLUA==
+  version "7.0.111"
+  resolved "https://registry.yarnpkg.com/jsii-docgen/-/jsii-docgen-7.0.111.tgz#d8aaeabd32ab0a324e621457c498564bcd29d042"
+  integrity sha512-TQRe0Lu5EigOyRxvD1Sx2AZ7UOlIDWmE9mlFy9rmJ7TlU8WFIlOCC3mL+0FZA9Am4QeIh8UqplApzA86aytxzA==
   dependencies:
     "@jsii/spec" "^1.69.0"
     case "^1.6.3"
