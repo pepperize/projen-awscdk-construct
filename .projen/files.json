@@ -15,6 +15,7 @@
     ".projen/tasks.json",
     "dist/fake.json",
     "LICENSE",
+    "projen-components.code-workspace",
     "tsconfig.dev.json",
     "tsconfig.json",
     "turbo.json"

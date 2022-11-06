@@ -1,5 +1,5 @@
 {
-  "name": "projen-awscdk-construct",
+  "name": "@pepperize/projen-components",
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
@@ -23,6 +23,11 @@
     "watch": "npx projen watch",
     "projen": "npx projen"
   },
+  "author": {
+    "name": "Patrick Florek",
+    "email": "patrick.florek@gmail.com",
+    "organization": true
+  },
   "devDependencies": {
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
@@ -41,7 +46,7 @@
     "typescript": "^4.8.4"
   },
   "main": "lib/index.js",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "version": "0.0.0",
   "types": "lib/index.d.ts",
   "private": true,

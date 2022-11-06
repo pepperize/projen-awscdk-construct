@@ -177,9 +177,6 @@
       "description": "Create python language bindings",
       "steps": [
         {
-          "exec": "pip3 install packaging"
-        },
-        {
           "exec": "jsii-pacmak -v --target python"
         }
       ]

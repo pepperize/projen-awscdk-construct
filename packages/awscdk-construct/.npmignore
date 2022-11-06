@@ -6,7 +6,7 @@ junit.xml
 permissions-backup.acl
 /dist/changelog.md
 /dist/version.txt
-/packages/awscdk-construct/.mergify.yml
+/.mergify.yml
 /test/
 /tsconfig.dev.json
 /src/
@@ -20,5 +20,5 @@ dist
 /.idea/
 /.projenrc.js
 tsconfig.tsbuildinfo
-/packages/awscdk-construct/.eslintrc.json
+/.eslintrc.json
 !.jsii

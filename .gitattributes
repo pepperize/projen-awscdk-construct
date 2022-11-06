@@ -17,6 +17,7 @@
 /dist/fake.json linguist-generated
 /LICENSE linguist-generated
 /package.json linguist-generated
+/projen-components.code-workspace linguist-generated
 /tsconfig.dev.json linguist-generated
 /tsconfig.json linguist-generated
 /turbo.json linguist-generated

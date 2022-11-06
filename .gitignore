@@ -30,6 +30,9 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
+.idea/
+*.iml
+.vscode
 !/.projenrc.js
 !/.github/workflows/build.yml
 /dist/changelog.md
@@ -47,3 +50,4 @@ jspm_packages/
 !/.eslintrc.json
 !/turbo.json
 !/dist/fake.json
+!/projen-components.code-workspace
