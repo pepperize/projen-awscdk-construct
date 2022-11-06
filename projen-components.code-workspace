@@ -3,10 +3,16 @@
     {
       "name": "projen-components",
       "path": "./"
+    },
+    {
+      "name": "@pepperize/projen-awscdk-construct",
+      "path": "packages/awscdk-construct"
     }
   ],
   "settings": {
-    "eslint.workingDirectories": [],
+    "eslint.workingDirectories": [
+      "./packages/awscdk-construct"
+    ],
     "jest.disabledWorkspaceFolders": [
       "projen-components"
     ]

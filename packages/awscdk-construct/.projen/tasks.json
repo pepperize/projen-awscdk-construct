@@ -5,9 +5,6 @@
       "description": "Full release build",
       "steps": [
         {
-          "spawn": "default"
-        },
-        {
           "spawn": "pre-compile"
         },
         {
@@ -127,6 +124,14 @@
       "steps": [
         {
           "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools projenrc .projenrc.ts"
+        }
+      ]
+    },
+    "format": {
+      "name": "format",
+      "steps": [
+        {
+          "exec": "prettier --write src/**/*.ts test/**/*.ts .projenrc.[jt]s README.md"
         }
       ]
     },
