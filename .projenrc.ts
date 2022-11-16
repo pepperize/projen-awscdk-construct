@@ -52,9 +52,6 @@ const project = new cdk.JsiiProject({
 
   deps: ["projen"] /* Runtime dependencies of this module. */,
   peerDeps: ["projen"],
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
 });
 
 project.setScript("format", "prettier --write src/**/*.ts test/**/*.ts .projenrc.[jt]s README.md");

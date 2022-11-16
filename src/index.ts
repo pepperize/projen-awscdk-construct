@@ -60,11 +60,11 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
       gitignore: [...(options.gitignore || [])],
     });
 
-    this.addDevDeps("ts-node@^10");
-
     this.gitignore.exclude(".idea/", "*.iml", ".vscode/");
 
     this.prettier?.addIgnorePattern("API.md");
+
+    this.tryFindObjectFile(".mergify.yml")?.addOverride("pull_request_rules.0.actions.queue.method", "merge");
 
     this.formatTask = this.addTask("format", {
       description: "Format with prettier",
