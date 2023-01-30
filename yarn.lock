@@ -540,14 +540,6 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@jsii/check-node@1.73.0":
-  version "1.73.0"
-  resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.73.0.tgz#6f9cff84ac6762a30c642c85d2d56603c299a89d"
-  integrity sha512-oneDKgjplUw2Ivk78iAb9lCsAasxkuQ6Ii15qzXsw16CPSRCqQlE78lUVV7pr+rxx/vQDWBAa8ycRbuVghC6TQ==
-  dependencies:
-    chalk "^4.1.2"
-    semver "^7.3.8"
-
 "@jsii/check-node@1.74.0":
   version "1.74.0"
   resolved "https://registry.yarnpkg.com/@jsii/check-node/-/check-node-1.74.0.tgz#997438e869c5f1fdf7a137c3e29a7236376f3999"
@@ -1291,10 +1283,10 @@ co@^4.6.0:
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
 
-codemaker@^1.73.0:
-  version "1.73.0"
-  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.73.0.tgz#5b3b280759a31ee259bbcdc50ba9bd46e115b787"
-  integrity sha512-pgVFCAbR0Yw/qTrV/W8R7cXWJouhONMRf8sNCjmAGJyV3MFaLN4sUPdUkzYUu7LCkuHPh0nvYRlExWzrkhm7vw==
+codemaker@^1.74.0:
+  version "1.74.0"
+  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.74.0.tgz#113d679c5f2d6bc6bb04621448930e48cf8cec40"
+  integrity sha512-i6fAyWpXAYN/dd8hvzFPJ7+Yb/a23+BmeCu/lPn0KDpDs/KpNKoz/I3Iq9JD4AL9bMc1b7kBeBV+UF6kS6EMEg==
   dependencies:
     camelcase "^6.3.0"
     decamelize "^5.0.1"
@@ -1987,9 +1979,9 @@ eslint-visitor-keys@^3.3.0:
   integrity sha512-mQ+suqKJVyeuwGYHAdjMFqjCyfl8+Ldnxuyp3ldiMBFKkvytrXUZWaiPCEav8qDHKty44bD+qV1IP4T+w+xXRA==
 
 eslint@^8:
-  version "8.32.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.32.0.tgz#d9690056bb6f1a302bd991e7090f5b68fbaea861"
-  integrity sha512-nETVXpnthqKPFyuY2FNjz/bEd6nbosRgKbkgS/y1C7LJop96gYHWpiguLecMHQ2XCPxn77DS0P+68WzG6vkZSQ==
+  version "8.33.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.33.0.tgz#02f110f32998cb598c6461f24f4d306e41ca33d7"
+  integrity sha512-WjOpFQgKK8VrCnAtl8We0SUOy/oVZ5NHykyMiagV1M9r8IFpIJX7DduK6n1mpfhlG7T1NLWm2SuD8QB7KFySaA==
   dependencies:
     "@eslint/eslintrc" "^1.4.1"
     "@humanwhocodes/config-array" "^0.11.8"
@@ -3434,19 +3426,19 @@ jsii-docgen@^7.0.51:
     yargs "^16.2.0"
 
 jsii-pacmak@^1.69.0:
-  version "1.73.0"
-  resolved "https://registry.yarnpkg.com/jsii-pacmak/-/jsii-pacmak-1.73.0.tgz#d31cdcfa5f9021f1b0a77c688201b826d2000090"
-  integrity sha512-zz3z+AoKXciKxBcmFt4PHPQPhbkjRUgN0hkrC6XhqugbpGprICtLNimU4qAQywHA+T0024TX8fnCCuymQ1sJPg==
+  version "1.74.0"
+  resolved "https://registry.yarnpkg.com/jsii-pacmak/-/jsii-pacmak-1.74.0.tgz#78301ea406ea3c74b6a867ead897f1519a2ccced"
+  integrity sha512-se/HUWjCsaXFGI1K/EGDOHtWbETn4iwm14SuK6LFj5CQu7ZX/aHTBCGFWA3qUwttXaDaBNatmuNQUYSydvKeaA==
   dependencies:
-    "@jsii/check-node" "1.73.0"
-    "@jsii/spec" "^1.73.0"
+    "@jsii/check-node" "1.74.0"
+    "@jsii/spec" "^1.74.0"
     clone "^2.1.2"
-    codemaker "^1.73.0"
+    codemaker "^1.74.0"
     commonmark "^0.30.0"
     escape-string-regexp "^4.0.0"
     fs-extra "^10.1.0"
-    jsii-reflect "^1.73.0"
-    jsii-rosetta "^1.73.0"
+    jsii-reflect "^1.74.0"
+    jsii-rosetta "^1.74.0"
     semver "^7.3.8"
     spdx-license-list "^6.6.0"
     xmlbuilder "^15.1.1"
