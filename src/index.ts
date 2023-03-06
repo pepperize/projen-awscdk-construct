@@ -1,4 +1,6 @@
-import { awscdk, IniFile, javascript, Task } from "projen";
+import { awscdk, DependencyType, IniFile, javascript, Task } from "projen";
+
+export const PROJEN_VERSION = "^0.67.74";
 
 export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
   /**
@@ -59,6 +61,8 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
       },
       gitignore: [...(options.gitignore || [])],
     });
+
+    this.deps.addDependency(`projen@${PROJEN_VERSION}`, DependencyType.DEVENV);
 
     this.gitignore.exclude(".idea/", "*.iml", ".vscode/");
 

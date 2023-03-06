@@ -1,4 +1,6 @@
 import { javascript, cdk } from "projen";
+import { PROJEN_VERSION } from "./src";
+
 const project = new cdk.JsiiProject({
   author: "Patrick Florek",
   authorAddress: "patrick.florek@gmail.com",
@@ -50,8 +52,8 @@ const project = new cdk.JsiiProject({
 
   gitignore: [".idea/", "*.iml", ".vscode"],
 
-  deps: ["projen"] /* Runtime dependencies of this module. */,
-  peerDeps: ["projen"],
+  devDeps: [`projen@${PROJEN_VERSION}`] /* Runtime dependencies of this module. */,
+  peerDeps: [`projen@${PROJEN_VERSION}`],
 });
 
 project.setScript("format", "prettier --write src/**/*.ts test/**/*.ts .projenrc.[jt]s README.md");
