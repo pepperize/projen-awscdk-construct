@@ -601,7 +601,7 @@
     chalk "^4.1.2"
     semver "^7.3.8"
 
-"@jsii/spec@1.79.0", "@jsii/spec@^1.78.1", "@jsii/spec@^1.79.0":
+"@jsii/spec@1.79.0", "@jsii/spec@^1.79.0":
   version "1.79.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.79.0.tgz#0fc9d9dfda05c85cf67295a5b7d6e438128e74d1"
   integrity sha512-ZmHObap/rOSjvoeqTmQOYrxm26vRftYepAmtd7yVwnNu/3tbwXcdSQMs/2rjaMsn6H3pmDwn048g3lUtYszzaw==
