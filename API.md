@@ -1,3 +1,47 @@
+[![GitHub](https://img.shields.io/github/license/pepperize/projen-awscdk-construct?style=flat-square)](https://github.com/pepperize/projen-awscdk-construct/blob/main/LICENSE)
+[![npm (scoped)](https://img.shields.io/npm/v/@pepperize/projen-awscdk-construct?style=flat-square)](https://www.npmjs.com/package/@pepperize/projen-awscdk-construct)
+[![PyPI](https://img.shields.io/pypi/v/pepperize.projen-awscdk-construct?style=flat-square)](https://pypi.org/project/pepperize.projen-awscdk-construct/)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/pepperize/projen-awscdk-construct/release/main?label=release&style=flat-square)](https://github.com/pepperize/projen-awscdk-construct/actions/workflows/release.yml)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/pepperize/projen-awscdk-construct?sort=semver&style=flat-square)](https://github.com/pepperize/projen-awscdk-construct/releases)
+
+# Projen awscdk-construct
+
+This project provides a projen project type providing presets for an AWS CDK construct library project.
+
+## Getting started
+
+To create a new project, run the following command and follow the instructions:
+
+```shell
+mkdir my-project
+cd my-project
+git init -b main
+npx projen new --from @pepperize/projen-awscdk-construct
+```
+
+_If your git cli doesn't have a `-b` option, either update [git](https://git-scm.com/) or issue `git init && git checkout -b main`._
+
+## Usage
+
+To init a new project from this module:
+
+```shell
+npx projen new --from @pepperize/projen-awscdk-construct@latest
+```
+
+_Note: it will install the `latest` version. If you don't specify the `latest` version, it won't be upgraded while running `yarn install`_
+
+## Create a new projen project type
+
+1. Create a new project for the projen external jsii npm module
+   ```shell
+   mkdir my-project
+   cd my-project
+   git init -b main
+   npx projen new jsii
+   ```
+2. Your `src/index.ts` should export only one project.
+
 # API Reference <a name="API Reference" id="api-reference"></a>
 
 
@@ -53,6 +97,7 @@ new AwsCdkConstructLibrary(options: AwsCdkConstructLibraryOptions)
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addFields">addFields</a></code> | Directly set fields in `package.json`. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
@@ -471,6 +516,22 @@ add/upgrade`. If you wish to specify a version range use this syntax:
 
 ---
 
+##### `addScripts` <a name="addScripts" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
 ##### ~~`addTestCommand`~~ <a name="addTestCommand" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addTestCommand"></a>
 
 ```typescript
@@ -485,7 +546,7 @@ DEPRECATED.
 
 ---
 
-##### `hasScript` <a name="hasScript" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.hasScript"></a>
+##### ~~`hasScript`~~ <a name="hasScript" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.hasScript"></a>
 
 ```typescript
 public hasScript(name: string): boolean
@@ -614,6 +675,7 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
@@ -631,6 +693,7 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
@@ -638,7 +701,7 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this pacakge. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
@@ -868,6 +931,18 @@ The root project.
 
 ---
 
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
 ##### `tasks`<sup>Required</sup> <a name="tasks" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.tasks"></a>
 
 ```typescript
@@ -1087,6 +1162,18 @@ public readonly manifest: any;
 
 ---
 
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
 ##### `package`<sup>Required</sup> <a name="package" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.package"></a>
 
 ```typescript
@@ -1183,7 +1270,7 @@ public readonly maxNodeVersion: string;
 
 - *Type:* string
 
-Maximum node version required by this pacakge.
+Maximum node version required by this package.
 
 ---
 
