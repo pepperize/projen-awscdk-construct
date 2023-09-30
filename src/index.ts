@@ -1,6 +1,6 @@
 import { awscdk, DependencyType, IniFile, javascript, Task } from "projen";
 
-export const PROJEN_VERSION = "^0.67.74";
+export const PROJEN_VERSION = "^0.73.36";
 
 export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
   /**
