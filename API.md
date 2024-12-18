@@ -1,52 +1,6 @@
-[![GitHub](https://img.shields.io/github/license/pepperize/projen-awscdk-construct?style=flat-square)](https://github.com/pepperize/projen-awscdk-construct/blob/main/LICENSE)
-[![npm (scoped)](https://img.shields.io/npm/v/@pepperize/projen-awscdk-construct?style=flat-square)](https://www.npmjs.com/package/@pepperize/projen-awscdk-construct)
-[![PyPI](https://img.shields.io/pypi/v/pepperize.projen-awscdk-construct?style=flat-square)](https://pypi.org/project/pepperize.projen-awscdk-construct/)
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/pepperize/projen-awscdk-construct/release/main?label=release&style=flat-square)](https://github.com/pepperize/projen-awscdk-construct/actions/workflows/release.yml)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/pepperize/projen-awscdk-construct?sort=semver&style=flat-square)](https://github.com/pepperize/projen-awscdk-construct/releases)
-
-# Projen awscdk-construct
-
-This project provides a projen project type providing presets for an AWS CDK construct library project.
-
-## Getting started
-
-To create a new project, run the following command and follow the instructions:
-
-```shell
-mkdir my-project
-cd my-project
-git init -b main
-npx projen new --from @pepperize/projen-awscdk-construct
-```
-
-_If your git cli doesn't have a `-b` option, either update [git](https://git-scm.com/) or issue `git init && git checkout -b main`._
-
-## Usage
-
-To init a new project from this module:
-
-```shell
-npx projen new --from @pepperize/projen-awscdk-construct@latest
-```
-
-_Note: it will install the `latest` version. If you don't specify the `latest` version, it won't be upgraded while running `yarn install`_
-
-## Create a new projen project type
-
-1. Create a new project for the projen external jsii npm module
-   ```shell
-   mkdir my-project
-   cd my-project
-   git init -b main
-   npx projen new jsii
-   ```
-2. Your `src/index.ts` should export only one project.
-
 # API Reference <a name="API Reference" id="api-reference"></a>
 
-
-
-## Classes <a name="Classes" id="Classes"></a>
+## Constructs <a name="Constructs" id="Constructs"></a>
 
 ### AwsCdkConstructLibrary <a name="AwsCdkConstructLibrary" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary"></a>
 
@@ -74,9 +28,10 @@ new AwsCdkConstructLibrary(options: AwsCdkConstructLibraryOptions)
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
-| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addTask">addTask</a></code> | Adds a new task to this project. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
@@ -108,10 +63,18 @@ new AwsCdkConstructLibrary(options: AwsCdkConstructLibraryOptions)
 
 ---
 
+##### `toString` <a name="toString" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
 ##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addExcludeFromCleanup"></a>
 
 ```typescript
-public addExcludeFromCleanup(globs: string): void
+public addExcludeFromCleanup(globs: ...string[]): void
 ```
 
 Exclude the matching files from pre-synth cleanup.
@@ -121,7 +84,7 @@ source files include the projen marker and we don't want them to be erased durin
 
 ###### `globs`<sup>Required</sup> <a name="globs" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addExcludeFromCleanup.parameter.globs"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The glob patterns to match.
 
@@ -149,14 +112,13 @@ The glob pattern to ignore.
 public addPackageIgnore(pattern: string): void
 ```
 
-Exclude these files from the bundled package.
-
-Implemented by project types based on the
-packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+Adds patterns to be ignored by npm.
 
 ###### `pattern`<sup>Required</sup> <a name="pattern" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addPackageIgnore.parameter.pattern"></a>
 
 - *Type:* string
+
+The pattern to ignore.
 
 ---
 
@@ -288,7 +250,7 @@ Synthesize all project files into `outdir`.
 
 1. Call "this.preSynthesize()"
 2. Delete all generated files
-3. Synthesize all sub-projects
+3. Synthesize all subprojects
 4. Synthesize all components of this project
 5. Call "postSynthesize()" for all components of this project
 6. Call "this.postSynthesize()"
@@ -378,7 +340,7 @@ public addBins(bins: {[ key: string ]: string}): void
 ##### `addBundledDeps` <a name="addBundledDeps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addBundledDeps"></a>
 
 ```typescript
-public addBundledDeps(deps: string): void
+public addBundledDeps(deps: ...string[]): void
 ```
 
 Defines bundled dependencies.
@@ -388,7 +350,7 @@ Bundled dependencies will be added as normal dependencies as well as to the
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addBundledDeps.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 Names modules to install.
 
@@ -403,28 +365,28 @@ add/upgrade`. If you wish to specify a version range use this syntax:
 ##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addCompileCommand"></a>
 
 ```typescript
-public addCompileCommand(commands: string): void
+public addCompileCommand(commands: ...string[]): void
 ```
 
 DEPRECATED.
 
 ###### `commands`<sup>Required</sup> <a name="commands" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addCompileCommand.parameter.commands"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 ---
 
 ##### `addDeps` <a name="addDeps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addDeps"></a>
 
 ```typescript
-public addDeps(deps: string): void
+public addDeps(deps: ...string[]): void
 ```
 
 Defines normal dependencies.
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addDeps.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 Names modules to install.
 
@@ -439,14 +401,14 @@ add/upgrade`. If you wish to specify a version range use this syntax:
 ##### `addDevDeps` <a name="addDevDeps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addDevDeps"></a>
 
 ```typescript
-public addDevDeps(deps: string): void
+public addDevDeps(deps: ...string[]): void
 ```
 
 Defines development/test dependencies.
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addDevDeps.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 Names modules to install.
 
@@ -477,14 +439,14 @@ The fields to set.
 ##### `addKeywords` <a name="addKeywords" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addKeywords"></a>
 
 ```typescript
-public addKeywords(keywords: string): void
+public addKeywords(keywords: ...string[]): void
 ```
 
 Adds keywords to package.json (deduplicated).
 
 ###### `keywords`<sup>Required</sup> <a name="keywords" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addKeywords.parameter.keywords"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 The keywords to add.
 
@@ -493,7 +455,7 @@ The keywords to add.
 ##### `addPeerDeps` <a name="addPeerDeps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addPeerDeps"></a>
 
 ```typescript
-public addPeerDeps(deps: string): void
+public addPeerDeps(deps: ...string[]): void
 ```
 
 Defines peer dependencies.
@@ -504,7 +466,7 @@ your code against the minimum version required from your consumers.
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addPeerDeps.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 Names modules to install.
 
@@ -535,14 +497,14 @@ The scripts to set.
 ##### ~~`addTestCommand`~~ <a name="addTestCommand" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addTestCommand"></a>
 
 ```typescript
-public addTestCommand(commands: string): void
+public addTestCommand(commands: ...string[]): void
 ```
 
 DEPRECATED.
 
 ###### `commands`<sup>Required</sup> <a name="commands" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addTestCommand.parameter.commands"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 ---
 
@@ -621,7 +583,7 @@ The command to execute.
 ##### ~~`addCdkDependencies`~~ <a name="addCdkDependencies" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addCdkDependencies"></a>
 
 ```typescript
-public addCdkDependencies(deps: string): void
+public addCdkDependencies(deps: ...string[]): void
 ```
 
 Adds dependencies to AWS CDK modules.
@@ -630,7 +592,7 @@ Since this is a library project, dependencies will be added as peer dependencies
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addCdkDependencies.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 
@@ -639,24 +601,100 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 ##### ~~`addCdkTestDependencies`~~ <a name="addCdkTestDependencies" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addCdkTestDependencies"></a>
 
 ```typescript
-public addCdkTestDependencies(deps: string): void
+public addCdkTestDependencies(deps: ...string[]): void
 ```
 
 Adds AWS CDK modules as dev dependencies.
 
 ###### `deps`<sup>Required</sup> <a name="deps" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.addCdkTestDependencies.parameter.deps"></a>
 
-- *Type:* string
+- *Type:* ...string[]
 
 names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 
 ---
 
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.isConstruct"></a>
+
+```typescript
+import { AwsCdkConstructLibrary } from '@pepperize/projen-awscdk-construct'
+
+AwsCdkConstructLibrary.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.isProject"></a>
+
+```typescript
+import { AwsCdkConstructLibrary } from '@pepperize/projen-awscdk-construct'
+
+AwsCdkConstructLibrary.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.of"></a>
+
+```typescript
+import { AwsCdkConstructLibrary } from '@pepperize/projen-awscdk-construct'
+
+AwsCdkConstructLibrary.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
@@ -701,8 +739,8 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
-| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version required by this package. |
-| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | Minimum node.js version required by this package. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version supported by this package. |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | The minimum node version required by this package to function. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
@@ -722,6 +760,18 @@ names of cdk modules (e.g. `@aws-cdk/aws-lambda`).
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | The target CDK version for this library. |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.version">version</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.formatTask">formatTask</a></code> | <code>projen.Task</code> | The "format" task. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
 
 ---
 
@@ -1270,7 +1320,9 @@ public readonly maxNodeVersion: string;
 
 - *Type:* string
 
-Maximum node version required by this package.
+Maximum node version supported by this package.
+
+The value indicates the package is incompatible with newer versions.
 
 ---
 
@@ -1282,7 +1334,9 @@ public readonly minNodeVersion: string;
 
 - *Type:* string
 
-Minimum node.js version required by this package.
+The minimum node version required by this package to function.
+
+This value indicates the package is incompatible with older versions.
 
 ---
 
@@ -1510,6 +1564,7 @@ The "format" task.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+| <code><a href="#@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.DEFAULT_TS_JEST_TRANFORM_PATTERN">DEFAULT_TS_JEST_TRANFORM_PATTERN</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -1527,5 +1582,17 @@ Normally
 this task should synthesize the project files.
 
 ---
+
+##### `DEFAULT_TS_JEST_TRANFORM_PATTERN`<sup>Required</sup> <a name="DEFAULT_TS_JEST_TRANFORM_PATTERN" id="@pepperize/projen-awscdk-construct.AwsCdkConstructLibrary.property.DEFAULT_TS_JEST_TRANFORM_PATTERN"></a>
+
+```typescript
+public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
+```
+
+- *Type:* string
+
+---
+
+
 
 
