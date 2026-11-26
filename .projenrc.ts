@@ -13,6 +13,13 @@ const project = new cdk.JsiiProject({
   repositoryUrl: "https://github.com/pepperize/projen-awscdk-construct.git",
 
   projenrcTs: true,
+  minNodeVersion: "22.13.0",
+  workflowNodeVersion: "24.x",
+  jsiiVersion: "~6.0.0",
+  jestOptions: {
+    jestVersion: "^30",
+  },
+  packageManager: javascript.NodePackageManager.YARN_CLASSIC,
 
   autoApproveUpgrades: true,
   autoApproveOptions: {
@@ -44,7 +51,6 @@ const project = new cdk.JsiiProject({
     module: "pepperize_projen_awscdk_construct",
   },
   publishToMaven: {
-    mavenEndpoint: "https://s01.oss.sonatype.org",
     mavenGroupId: "com.pepperize",
     mavenArtifactId: "projen-awscdk-construct",
     javaPackage: "com.pepperize.projen.awscdk_construct",
@@ -52,11 +58,14 @@ const project = new cdk.JsiiProject({
 
   gitignore: [".idea/", "*.iml", ".vscode"],
 
-  devDeps: [`projen@${PROJEN_VERSION}`] /* Runtime dependencies of this module. */,
+  devDeps: [`projen@${PROJEN_VERSION}`, "@types/node@^22"] /* Runtime dependencies of this module. */,
   peerDeps: [`projen@${PROJEN_VERSION}`],
 });
 
 project.setScript("format", "prettier --write src/**/*.ts test/**/*.ts .projenrc.[jt]s README.md");
+
+// projen depends on the ESM-only "dax"; jest needs vm modules to require() it
+project.testTask.env("NODE_OPTIONS", "--experimental-vm-modules");
 
 project.tasks.tryFind("package:python")?.prependExec("pip3 install packaging");
 

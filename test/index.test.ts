@@ -4,7 +4,7 @@ describe("AwsCdkConstructLibrary", () => {
   it("", () => {
     // Given
     const project = new AwsCdkConstructLibrary({
-      cdkVersion: "1.139.0",
+      cdkVersion: "2.1.0",
       ...defaultOptions,
     });
 
