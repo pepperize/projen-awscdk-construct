@@ -68,7 +68,7 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
 
     this.prettier?.addIgnorePattern("API.md");
 
-    this.tryFindObjectFile(".mergify.yml")?.addOverride("pull_request_rules.0.actions.queue.method", "merge");
+    this.tryFindObjectFile(".mergify.yml")?.addOverride("queue_rules.0.merge_method", "merge");
 
     this.formatTask = this.addTask("format", {
       description: "Format with prettier",
