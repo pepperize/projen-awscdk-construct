@@ -1,3 +1,4 @@
+import { Testing } from "projen";
 import { AwsCdkConstructLibrary } from "../src";
 
 describe("AwsCdkConstructLibrary", () => {
@@ -10,6 +11,21 @@ describe("AwsCdkConstructLibrary", () => {
 
     // Then
     expect(project.formatTask.description).toEqual("Format with prettier");
+  });
+
+  it("Should configure a valid mergify merge method", () => {
+    // Given
+    const project = new AwsCdkConstructLibrary({
+      cdkVersion: "2.1.0",
+      ...defaultOptions,
+    });
+
+    // When
+    const mergify = Testing.synth(project)[".mergify.yml"];
+
+    // Then
+    expect(mergify).toContain("merge_method: merge");
+    expect(mergify).not.toMatch(/queue:\n\s+name: default\n\s+method:/);
   });
 });
 
