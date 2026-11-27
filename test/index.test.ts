@@ -27,6 +27,31 @@ describe("AwsCdkConstructLibrary", () => {
     expect(mergify).toContain("merge_method: merge");
     expect(mergify).not.toMatch(/queue:\n\s+name: default\n\s+method:/);
   });
+
+  it("Should recreate conflicting dependabot pull requests", () => {
+    // Given
+    const project = new AwsCdkConstructLibrary({
+      cdkVersion: "2.1.0",
+      ...defaultOptions,
+    });
+
+    // When
+    const mergify = Testing.synth(project)[".mergify.yml"];
+
+    // Then
+    expect(mergify).toContain(
+      [
+        "  - name: Recreate conflicting dependabot pull requests",
+        "    conditions:",
+        "      - author=dependabot[bot]",
+        "      - conflict",
+        "      - -closed",
+        "    actions:",
+        "      comment:",
+        '        message: "@dependabot recreate"',
+      ].join("\n"),
+    );
+  });
 });
 
 const defaultOptions = {
