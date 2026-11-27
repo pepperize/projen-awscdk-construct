@@ -70,6 +70,13 @@ export class AwsCdkConstructLibrary extends awscdk.AwsCdkConstructLibrary {
 
     this.tryFindObjectFile(".mergify.yml")?.addOverride("queue_rules.0.merge_method", "merge");
 
+    // self-mutation commits stop dependabot from rebasing, so conflicting PRs never reach the queue
+    this.github?.mergify?.addRule({
+      name: "Recreate conflicting dependabot pull requests",
+      conditions: ["author=dependabot[bot]", "conflict", "-closed"],
+      actions: { comment: { message: "@dependabot recreate" } },
+    });
+
     this.formatTask = this.addTask("format", {
       description: "Format with prettier",
       exec: "prettier --write src/**/*.ts test/**/*.ts .projenrc.[jt]s README.md",
